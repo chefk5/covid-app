@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { Text } from '@chakra-ui/react'
 import './App.css'
+import useAxiosGet from './hooks/useAxiosGet'
+import ToggleColor from './components/ToggleColor'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { data, loading, error } = useAxiosGet('https://covid.ourworldindata.org/data/owid-covid-data.json')
 
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div >
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div >
+    <div >
+      {loading ? <Text>Loading...</Text> : <p>not Loading...</p>}
+      <ToggleColor />
+    </div>
   )
 }
 
