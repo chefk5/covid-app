@@ -15,7 +15,13 @@ function useAxiosGet<T>(url: string): UseAxiosGetReturnType<T> {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response: AxiosResponse<T> = await axios.get(url)
+				const response: AxiosResponse<T> = await axios.get(url, {
+					onDownloadProgress: (progressEvent: any) => {
+						console.log(
+							Math.round((progressEvent.loaded * 100) / progressEvent.total)
+						)
+					},
+				})
 				setData(response.data)
 			} catch (err: any) {
 				setError(err.message || 'Something went wrong!')

@@ -1,37 +1,57 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Container, FormControl, FormLabel, Code } from '@chakra-ui/react'
-import { Select } from 'chakra-react-select'
-// type Props = {}
+import { Select, OptionBase, GroupBase, ActionMeta } from 'chakra-react-select'
+import { CountryData } from './interfaces'
 
+type Props = {
+    data: CountryData,
+    selectCountry: (country: string) => void
+}
+interface OptionType extends OptionBase {
+    label: string
+    value: string
+}
 
+const CountrySelector = ({ data, selectCountry }: Props) => {
+    const [countries, setCountries] = useState<OptionType[]>([])
+    const [selectedOption, setSelectedOption] = useState<OptionType | null>()
 
-export const colorOptions = [
-    { value: 'blue', label: 'Blue' },
-    { value: 'purple', label: 'Purple' },
-    { value: 'red', label: 'Red' },
-    { value: 'orange', label: 'Orange' },
-    { value: 'yellow', label: 'Yellow' },
-    { value: 'green', label: 'Green' },
-    { value: 'red', label: 'Red' },
-    { value: 'orange', label: 'Orange' },
-    { value: 'yellow', label: 'Yellow' },
-    { value: 'green', label: 'Green' }
-]
+    const handleSelect = (option: OptionType | null) => {
+        if (option != undefined) {
+            setSelectedOption(option)
+            selectCountry(option?.value)
+        }
+    }
 
+    const createCountriesList = (data: CountryData) => {
+        const arr: OptionType[] = []
+        for (const [key, value] of Object.entries(data)) {
+            arr.push({ value: key, label: value.location })
+        }
 
-const CountrySelector = () => {
+        setCountries(arr)
+
+    }
+
+    useEffect(() => {
+        createCountriesList(data)
+    }, [data])
+
     return (
         // <Container >
         <FormControl p={4}>
             <FormLabel>
                 Select Country
             </FormLabel>
-            <Select
-                name="colors"
-                options={colorOptions}
-                placeholder="Select some colors..."
-                closeMenuOnSelect={false}
+            <Select<OptionType, false, GroupBase<OptionType>>
+                name="countries"
+                options={countries}
+                placeholder="Select country"
+                closeMenuOnSelect={true}
                 size="sm"
+                value={selectedOption}
+                onChange={handleSelect}
+
             />
         </FormControl>
         // </Container>

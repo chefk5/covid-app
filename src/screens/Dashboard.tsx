@@ -2,10 +2,14 @@ import { Flex, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/
 import React from 'react'
 import RankedCharts from '../components/RankedCharts'
 import ReportedCases from '../components/ReportedCases'
+import { CountryData, GeneralData } from '../components/interfaces'
 
-//type Props = {}
+type Props = {
+    data: GeneralData,
+    selectedCountry: string
+}
 
-function Dashboard() {
+function Dashboard({ data, selectedCountry }: Props) {
     return (
         // <Flex >
         <Tabs isLazy isFitted>
@@ -16,7 +20,7 @@ function Dashboard() {
             <TabPanels>
                 {/* initially mounted */}
                 <TabPanel>
-                    <ReportedCases />
+                    <ReportedCases data={data} selectedCountry={selectedCountry} />
                 </TabPanel>
                 {/* initially not mounted */}
                 <TabPanel>
