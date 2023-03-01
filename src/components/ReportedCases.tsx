@@ -51,7 +51,7 @@ const ReportedCases = ({ data, selectedCountry }: Props) => {
             </Flex>
             <Flex justify={'center'} gap={20} marginTop={10} >
                 <RadioGroup onChange={setMetric} value={metric}>
-                    <Stack direction=s>
+                    <Stack direction=ss>
 
                         <Radio value="deaths">Death count</Radio>
                         <Radio value="cases">Confirmed cases</Radio>
