@@ -16,14 +16,15 @@ function App() {
   }
 
   return (
+    ss
     loading ? <p>loading</p>
-      : <Box >
-        <ToggleColor />
-        <CountrySelector data={data} selectCountry={selectCountry} />
-        <Dashboard data={data} selectedCountry={selectedCountry} />
-        {/* {loading ? <Text>Loading...</Text> : <p>not Loading...</p>} */}
+    : <Box >
+      <ToggleColor />
+      <CountrySelector data={data} selectCountry={selectCountry} />
+      <Dashboard data={data} selectedCountry={selectedCountry} />
+      {/* {loading ? <Text>Loading...</Text> : <p>not Loading...</p>} */}
 
-      </Box>
+    </Box>
   )
 }
 
