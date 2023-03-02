@@ -1,8 +1,8 @@
-export interface GeneralData {
-	[countryAbbreviation: string]: CountryData
+export interface IGeneralData {
+	[countryAbbreviation: string]: ICountryData
 }
 
-export interface CountryData {
+export interface ICountryData {
 	continent: string
 	location: string
 	population: number
@@ -17,14 +17,14 @@ export interface CountryData {
 	hospital_beds_per_thousand: number
 	life_expectancy: number
 	human_development_index: number
-	data: CovidData[]
+	data: ICovidData[]
 }
 
-export interface CovidData {
+export interface ICovidData {
 	location: string
 	date: string
 	total_cases: number
-	new_cases: number | number
+	new_cases: number
 	new_cases_smoothed: number
 	total_deaths: number
 	new_deaths: number

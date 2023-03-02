@@ -1,10 +1,10 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { Container, FormControl, FormLabel, Code } from '@chakra-ui/react'
-import { Select, OptionBase, GroupBase, ActionMeta } from 'chakra-react-select'
-import { CountryData } from './interfaces'
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { GroupBase, OptionBase, Select } from 'chakra-react-select'
+import { useEffect, useState } from 'react'
+import { IGeneralData } from '../interfaces'
 
 type Props = {
-    data: CountryData,
+    data: IGeneralData | null,
     selectCountry: (country: string) => void
 }
 interface OptionType extends OptionBase {
@@ -23,7 +23,7 @@ const CountrySelector = ({ data, selectCountry }: Props) => {
         }
     }
 
-    const createCountriesList = (data: CountryData) => {
+    const createCountriesList = (data: IGeneralData) => {
         const arr: OptionType[] = []
         for (const [key, value] of Object.entries(data)) {
             arr.push({ value: key, label: value.location })

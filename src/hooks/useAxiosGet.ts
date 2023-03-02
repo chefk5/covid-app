@@ -1,23 +1,28 @@
 import { useState, useEffect } from 'react'
 import axios, { AxiosResponse } from 'axios'
+import { IGeneralData } from '../interfaces'
 
-type UseAxiosGetReturnType<T> = {
-	data: T | null
+type UseAxiosGetReturnType = {
+	data: IGeneralData | null
 	loading: boolean
 	error: string | null
+	loadingCount: number
 }
 
-function useAxiosGet<T>(url: string): UseAxiosGetReturnType<T> {
-	const [data, setData] = useState<T | null>(null)
+function useAxiosGet<T extends IGeneralData>(
+	url: string
+): UseAxiosGetReturnType {
+	const [data, setData] = useState<IGeneralData | null>(null)
 	const [loading, setLoading] = useState<boolean>(true)
 	const [error, setError] = useState<string | null>(null)
+	const [loadingCount, setLoadingCount] = useState<number>(0)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response: AxiosResponse<T> = await axios.get(url, {
 					onDownloadProgress: (progressEvent: any) => {
-						console.log(
+						setLoadingCount(
 							Math.round((progressEvent.loaded * 100) / progressEvent.total)
 						)
 					},
@@ -33,7 +38,7 @@ function useAxiosGet<T>(url: string): UseAxiosGetReturnType<T> {
 		fetchData()
 	}, [url])
 
-	return { data, loading, error }
+	return { data, loading, error, loadingCount }
 }
 
 export default useAxiosGet

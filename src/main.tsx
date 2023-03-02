@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import App from './App'
-import ErrorPage from './screens/ErrorPage'
+import ErrorPage from './screens/InfoPage'
 import theme from './styles/theme'
 
 const router = createBrowserRouter([
