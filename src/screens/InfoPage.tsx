@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 
 type Props = {
-    msg: string
+    msg?: string
 }
 const InfoPage = ({ msg }: Props) => {
     return (
