@@ -36,6 +36,7 @@ const CountrySelector = ({ data, selectCountry }: Props) => {
     }
 
     useEffect(() => {
+        // @ts-expect-error did not check for type here
         createCountriesList(data)
     }, [data])
 

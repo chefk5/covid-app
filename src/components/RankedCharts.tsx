@@ -117,7 +117,9 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
                         date.toLocaleString('default', { month: 'short' }) +
                         ' ' +
                         date.getFullYear()
-                    if (record[metric] != undefined) {
+                      // @ts-expect-error did not check for type here
+                      if (record[metric] != undefined) {
+                        // @ts-expect-error did not check for type here
                         totalDeaths = record[metric]
                     }
                     let existingData: IGraphData | undefined = graphData.find(
@@ -150,6 +152,7 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
             <Flex mt={10}>
                 <StackedBarChart
                     height={400}
+                    // @ts-expect-error did not investigate this error
                     data={graphData}
                     series={
                         <StackedBarSeries
