@@ -58,9 +58,11 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
     })
     const [graphData, setGraphData] = useState<IGraphData[]>([])
 
+    //here we create an array with the country and totals in order to find the top countries
     const getTotalPerCountryList = () => {
         const countryList: ITotalPerCountry[] = []
         Object.keys(data).forEach((country) => {
+            //remove names that are not countries
             if (!country.startsWith('OWID')) {
                 let sum = 0
 
@@ -73,6 +75,8 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
                 countryList.push({ [country]: sum })
             }
         })
+
+        //sort countries top to bottom
         countryList.sort((a, b) => {
             const valueA: number = Object.values(a)[0]
             const valueB: number = Object.values(b)[0]
@@ -85,14 +89,20 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
     const createGraphData = useCallback(() => {
         const graphData: IGraphData[] = []
 
+        //get the sorted countries and take the number of countriesdefined in the select
         const newCountryList = getTotalPerCountryList().slice(
             0,
             Number(selectedOption?.value)
         )
+
+        //if a country is selected, we remove another country and add the selected country
         if (selectedCountry) {
             newCountryList.pop()
             newCountryList.push({ [selectedCountry]: 1 })
         }
+
+        //this is the logic in order to transform the data for each country to a format acceptable by the graph
+        //check below to see the conversion
         for (const countryCode in data) {
             const country = data[countryCode].data
             const countryObject = newCountryList.find(
@@ -190,3 +200,57 @@ const RankedCharts = ({ data, selectedCountry }: Props) => {
 }
 
 export default RankedCharts
+
+//conversion
+
+//from
+
+// {
+// 	"ARG": {
+// 		"location": "Argentina",
+// 		"data": [
+// 			{
+// 				"date": "2020-01-01",
+// 				"total_tests": 34,
+// 			},
+// 			{
+// 				"date": "2020-01-02",
+// 				"total_tests": 4,
+// 			}
+// 		]
+// 	},
+// 	"BRA": {
+// 		"location": "Brazil",
+// 		"data": [
+// 			{
+// 				"date": "2020-01-01",
+// 				"total_tests": 4,
+			
+// 			},
+// 			{
+// 				"date": "2020-01-02",
+// 				"total_tests": 14,
+// 			}
+// 		]
+// 	}
+// }
+
+//To:
+
+// [
+//     {
+//         key: "2020-01-01",
+//         data: [
+// 			{ key: 'Argentina', data: 34 },
+//             { key: 'Brazil', data: 4 },
+          
+//         ]
+//     },
+//     {
+//         key: "2020-01-02",
+//         data: [
+// 			{ key: 'Argentina', data: 4 },
+//             { key: 'Brazil', data: 14 },
+//         ]
+//     },
+// ]

@@ -1,1 +1,104 @@
-[{"/Users/khaled/Development/personal/covid-app/covid-app/src/App.tsx":"1","/Users/khaled/Development/personal/covid-app/covid-app/src/components/ReportedCases.tsx":"2"},{"size":919,"mtime":1677670255545,"results":"3","hashOfConfig":"4"},{"size":2350,"mtime":1677670494087,"results":"5","hashOfConfig":"4"},{"filePath":"6","messages":"7","suppressedMessages":"8","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},"tqz658",{"filePath":"9","messages":"10","suppressedMessages":"11","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},"/Users/khaled/Development/personal/covid-app/covid-app/src/App.tsx",["12","13"],[],"/Users/khaled/Development/personal/covid-app/covid-app/src/components/ReportedCases.tsx",["14","15"],[],{"ruleId":"16","severity":1,"message":"17","line":2,"column":15,"nodeType":"18","messageId":"19","endLine":2,"endColumn":19},{"ruleId":"16","severity":1,"message":"20","line":12,"column":26,"nodeType":"18","messageId":"19","endLine":12,"endColumn":31},{"ruleId":"16","severity":1,"message":"21","line":3,"column":24,"nodeType":"18","messageId":"19","endLine":3,"endColumn":27},{"ruleId":"16","severity":1,"message":"22","line":4,"column":10,"nodeType":"18","messageId":"19","endLine":4,"endColumn":21},"@typescript-eslint/no-unused-vars","'Text' is defined but never used.","Identifier","unusedVar","'error' is assigned a value but never used.","'Box' is defined but never used.","'ICountryData' is defined but never used."]
+[
+	{
+		"/Users/khaled/Development/personal/covid-app/covid-app/src/App.tsx": "1",
+		"/Users/khaled/Development/personal/covid-app/covid-app/src/components/ReportedCases.tsx": "2"
+	},
+	{
+		"size": 919,
+		"mtime": 1677670255545,
+		"results": "3",
+		"hashOfConfig": "4"
+	},
+	{
+		"size": 2350,
+		"mtime": 1677670494087,
+		"results": "5",
+		"hashOfConfig": "4"
+	},
+	{
+		"filePath": "6",
+		"messages": "7",
+		"suppressedMessages": "8",
+		"errorCount": 0,
+		"fatalErrorCount": 0,
+		"warningCount": 2,
+		"fixableErrorCount": 0,
+		"fixableWarningCount": 0,
+		"source": null
+	},
+	"tqz658",
+	{
+		"filePath": "9",
+		"messages": "10",
+		"suppressedMessages": "11",
+		"errorCount": 0,
+		"fatalErrorCount": 0,
+		"warningCount": 2,
+		"fixableErrorCount": 0,
+		"fixableWarningCount": 0,
+		"source": null
+	},
+	"/Users/khaled/Development/personal/covid-app/covid-app/src/App.tsx",
+	[
+		"12",
+		"13"
+	],
+	[],
+	"/Users/khaled/Development/personal/covid-app/covid-app/src/components/ReportedCases.tsx",
+	[
+		"14",
+		"15"
+	],
+	[],
+	{
+		"ruleId": "16",
+		"severity": 1,
+		"message": "17",
+		"line": 2,
+		"column": 15,
+		"nodeType": "18",
+		"messageId": "19",
+		"endLine": 2,
+		"endColumn": 19
+	},
+	{
+		"ruleId": "16",
+		"severity": 1,
+		"message": "20",
+		"line": 12,
+		"column": 26,
+		"nodeType": "18",
+		"messageId": "19",
+		"endLine": 12,
+		"endColumn": 31
+	},
+	{
+		"ruleId": "16",
+		"severity": 1,
+		"message": "21",
+		"line": 3,
+		"column": 24,
+		"nodeType": "18",
+		"messageId": "19",
+		"endLine": 3,
+		"endColumn": 27
+	},
+	{
+		"ruleId": "16",
+		"severity": 1,
+		"message": "22",
+		"line": 4,
+		"column": 10,
+		"nodeType": "18",
+		"messageId": "19",
+		"endLine": 4,
+		"endColumn": 21
+	},
+	"@typescript-eslint/no-unused-vars",
+	"'Text' is defined but never used.",
+	"Identifier",
+	"unusedVar",
+	"'error' is assigned a value but never used.",
+	"'Box' is defined but never used.",
+	"'ICountryData' is defined but never used."
+]

@@ -18,6 +18,7 @@ const ReportedCases = ({ data, selectedCountry }: Props) => {
     const [type, setType] = React.useState<string>('new')
     const [graphData, setGraphData] = React.useState<IGraphData[]>([])
 
+    //if country not selected show OWID_INT
     const selectedCountryData: ICovidData[] = useMemo(() => {
 
         return selectedCountry === ''
@@ -26,8 +27,10 @@ const ReportedCases = ({ data, selectedCountry }: Props) => {
 
     }, [selectedCountry, data])
 
+    //crete graph data
     const prepapreGraphData = () => {
         const arr: IGraphData[] = []
+        //we merge the type and metric for a dynamic sleection of data
         const selected_metrics = `${type}_${metric}`
 
         selectedCountryData.map((el) => {

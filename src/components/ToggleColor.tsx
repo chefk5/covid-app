@@ -1,6 +1,7 @@
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { Button, Flex, useColorMode } from '@chakra-ui/react'
 
+//toggle color of page
 export default function ToggleColor() {
     const { colorMode, toggleColorMode } = useColorMode()
     return (

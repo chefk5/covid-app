@@ -16,6 +16,7 @@ const CountrySelector = ({ data, selectCountry }: Props) => {
     const [countries, setCountries] = useState<OptionType[]>([])
     const [selectedOption, setSelectedOption] = useState<OptionType | null>()
 
+    //we use selectCounries for the actual selected country, we will pass it to another components
     const handleSelect = (option: OptionType | null) => {
         if (option != undefined) {
             setSelectedOption(option)
@@ -23,6 +24,7 @@ const CountrySelector = ({ data, selectCountry }: Props) => {
         }
     }
 
+    //create an array to fill the country picker
     const createCountriesList = (data: IGeneralData) => {
         const arr: OptionType[] = []
         for (const [key, value] of Object.entries(data)) {
