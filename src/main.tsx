@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage msg={'Route not found'} />
   },
 ])
 
